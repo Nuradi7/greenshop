@@ -1,0 +1,193 @@
+{% load static  %}
+<header class="header">
+    <div class="container">
+        <div class="header__inner header__desktop">
+            <a href="{% url 'home' %}" class="logo">
+                <img src="{% static 'images/logo.svg' %}" alt="Greenshop">
+            </a>
+            <nav class="main-page">
+                <ul class="user-list">
+                    <li class="user-list__item">
+                        <a href="{% url 'home' %}" class="user-list__link">Home</a>
+                    </li>
+                    <li class="user-list__item">
+                        <a href="" class="user-list__link">Shop</a>
+                    </li>
+                    <li class="user-list__item">
+                        <a href="#" class="user-list__link">Plant Care</a>
+                    </li>
+                    <li class="user-list__item">
+                        <a href="#" class="user-list__link">Blogs</a>
+                    </li>
+                </ul>
+            </nav>
+            <ul class="user-list">
+                <li class="user-list__item">
+            
+                <form class="search" action="{% url 'search' %}" method="get">
+                    <button class="user-search" type="submit"></button>
+                    <div class="search-box">
+                        <input class="search-txt" name="q" placeholder="Поиск"/>
+                        <img src="{% static 'images/search.svg' %}" alt="">
+                      </div>
+                    </form>
+                </li>
+                <li class="user-list__item">
+                    <a href="" class="user-list__link basket-counter">
+                        <img src="{% static 'images/basket.svg' %}" alt="Basket" class="user-list__img">
+                        <p class="basket-counter__num">0</p>
+                    </a>
+                </li>
+                <li class="user-list__item">
+                    <div class="user-list__link button button-login" onclick="popup()">
+                        <img src="{% static 'images/logout.svg' %}" alt="" class="user-list__img">Login
+                    </div>
+                    <div class="popup hide">
+                        <div class="popup__wrapper">
+                            <div class="popup__close-button" onclick="popupClose()">
+                                <img src="{% static 'images/close.svg' %}" alt="Close">
+                            </div>
+                            <ul class="popup__list">
+                                <li class="popup__list-item">
+                                    <a href="#" class="popup__list-button" onclick="loginMenu()">Login</a>
+                                </li>
+                                <li class="popup__list-item">
+                                    <a href="#" class="popup__list-button" onclick="registerMenu()">Register</a>
+                                </li>
+                            </ul>
+                            <div class="popup__login">
+                                <p class="popup__text">Enter your email and password to login.</p>
+                                <form action="#">
+                                    <input type="email" class="popup__input" placeholder="almamun_uxui@outlook.com">
+                                    <div class="popup__pasword-wrapper">
+                                        <input type="password" class="popup__input popup__input-password" placeholder="Password">
+                                        <img src="{% static 'images/Hide.svg' %}" alt="Hide" onclick="hide()">
+                                    </div>
+                                    <a href="#" class="popup__forgot-password">Forgot Password?</a>
+                                    <button type="submit" class="popup__submit button">Login</button>
+                                </form>
+                                <p class="popup__text-line">Or login with</p>
+                                <a href="#" class="popup__login-with">
+                                    <img src="{% static 'images/Google.svg' %}" alt="Google" class="popup__img">Login with Google
+                                </a>
+                                <a href="#" class="popup__login-with">
+                                    <img src="{% static 'images/FacebookColor.svg' %}" alt="Facebook" class="popup__img">Login with Facebook
+                                </a>
+                            </div>
+                            <div class="popup__register hide">
+                                <p class="popup__text">Enter your email and password to register.</p>
+                                <form action="#">
+                                    <input type="text" class="popup__input" placeholder="Username">
+                                    <input type="text" class="popup__input" placeholder="Enter your email address">
+                                    <div class="popup__pasword-wrapper">
+                                        <input type="password" class="popup__input popup__input-password" placeholder="Password">
+                                        <img src="{% static 'images/Hide.svg' %}" alt="Hide" onclick="hide()">
+                                    </div>
+                                    <input type="password" class="popup__input" placeholder="Confirm Password">
+                                    <button type="submit" class="popup__submit button">Register</button>
+                                </form>
+                                <p class="popup__text-line">Or registe with</p>
+                                <a href="#" class="popup__login-with">
+                                    <img src="{% static 'images/Google.svg' %}" alt="Google" class="popup__img">Continue with Google
+                                </a>
+                                <a href="#" class="popup__login-with">
+                                    <img src="{% static 'images/FacebookColor.svg' %}" alt="Facebook" class="popup__img">Continue with Facebook
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="header__inner header__phone">
+            <nav class="main-page">
+                <div class="main-page__form">
+                    <form action="#">
+                        <input type="text" class="main-page__input" placeholder="Find your plants">
+                    </form>
+                </div>
+                <a href="#" class="main-page__btn" onclick="burgerMenuOpen()">
+                    <img src="{% static 'images/burgerMenu.svg' %}" alt="Burger">
+                </a>
+            </nav>
+            <nav class="burger-menu hide">
+                <ul class="user-list">
+                    <li class="user-list__item">
+                        <a href="{% url 'home' %}" class="user-list__link">Home</a>
+                    </li>
+                    <li class="user-list__item">
+                        <a href="" class="user-list__link">Shop</a>
+                    </li>
+                    <li class="user-list__item">
+                        <a href="#" class="user-list__link">Plant Care</a>
+                    </li>
+                    <li class="user-list__item">
+                        <a href="#" class="user-list__link">Blogs</a>
+                    </li>
+                    <li class="user-list__item">
+                        <a href="#" class="user-list__link">Basket</a>
+                    </li>
+                    <li class="user-list__item">
+                        <div class="user-list__link button button-login" onclick="popup()">
+                            <img src="{% static 'images/logout.svg' %}" alt="" class="user-list__img">Login
+                        </div>
+                        <div class="popup hide">
+                            <div class="popup__wrapper">
+                                <div class="popup__close-button" onclick="popupClose()">
+                                    <img src="{% static 'images/close.svg' %}" alt="Close">
+                                </div>
+                                <ul class="popup__list">
+                                    <li class="popup__list-item">
+                                        <a href="#" class="popup__list-button" onclick="loginMenu()">Login</a>
+                                    </li>
+                                    <li class="popup__list-item">
+                                        <a href="#" class="popup__list-button" onclick="registerMenu()">Register</a>
+                                    </li>
+                                </ul>
+                                <div class="popup__login">
+                                    <p class="popup__text">Enter your email and password to login.</p>
+                                    <form action="#">
+                                        <input type="email" class="popup__input" placeholder="almamun_uxui@outlook.com">
+                                        <div class="popup__pasword-wrapper">
+                                            <input type="password" class="popup__input popup__input-password" placeholder="Password">
+                                            <img src="{% static 'images/Hide.svg' %}" alt="Hide" onclick="hide()">
+                                        </div>
+                                        <a href="#" class="popup__forgot-password">Forgot Password?</a>
+                                        <button type="submit" class="popup__submit button">Login</button>
+                                    </form>
+                                    <p class="popup__text-line">Or login with</p>
+                                    <a href="#" class="popup__login-with">
+                                        <img src="{% static 'images/Google.svg' %}" alt="Google" class="popup__img">Login with Google
+                                    </a>
+                                    <a href="#" class="popup__login-with">
+                                        <img src="{% static 'images/FacebookColor.svg' %}" alt="Facebook" class="popup__img">Login with Facebook
+                                    </a>
+                                </div>
+                                <div class="popup__register hide">
+                                    <p class="popup__text">Enter your email and password to register.</p>
+                                    <form action="#">
+                                        <input type="text" class="popup__input" placeholder="Username">
+                                        <input type="text" class="popup__input" placeholder="Enter your email address">
+                                        <div class="popup__pasword-wrapper">
+                                            <input type="password" class="popup__input popup__input-password" placeholder="Password">
+                                            <img src="{% static 'images/Hide.svg' %}" alt="Hide" onclick="hide()">
+                                        </div>
+                                        <input type="password" class="popup__input" placeholder="Confirm Password">
+                                        <button type="submit" class="popup__submit button">Register</button>
+                                    </form>
+                                    <p class="popup__text-line">Or registe with</p>
+                                    <a href="#" class="popup__login-with">
+                                        <img src="{% static 'images/Google.svg' %}" alt="Google" class="popup__img">Continue with Google
+                                    </a>
+                                    <a href="#" class="popup__login-with">
+                                        <img src="{% static 'images/FacebookColor.svg' %}" alt="Facebook" class="popup__img">Continue with Facebook
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
