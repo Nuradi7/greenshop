@@ -84,7 +84,8 @@ class AddReview(View):
         if form.is_valid():
             form = form.save(commit=False)
             if request.POST.get("parent", None):
-                form.parent_id = int(request.POST.get("parent"))
+                print(int(request.POST.get("parent")))
+                
             form.flowers = flowers
             form.save()
         return redirect(flowers.get_absolute_url())

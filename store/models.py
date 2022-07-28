@@ -33,7 +33,6 @@ class Flowers(models.Model):
     def get_absolute_url(self):
         return reverse("flowers_detail", kwargs={"slug": self.url})
 
-
     class Meta:
         verbose_name = 'Растения'
         verbose_name_plural = 'Растения'
